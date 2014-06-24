@@ -1,0 +1,17 @@
+name: GCC-ARM-Embedded
+version: 0.0.1
+inherits: wercker/default@0.0.2
+type: service
+platform: ubuntu@12.04
+description: wercker box for running embedded gcc
+keywords:
+  - gcc
+  - arm
+  - gcc-arm
+  - embedded
+  - automation
+
+script: |
+  sudo add-apt-repository --yes ppa:terry.guo/gcc-arm-embedded
+  sudo apt-get update
+  sudo apt-get install --yes gcc-arm-none-eabi
