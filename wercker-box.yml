@@ -1,5 +1,5 @@
 name: GCC-ARM-Embedded
-version: 0.0.3
+version: 0.0.4
 inherits: wercker/ubuntu12.04-webessentials@1.0.4
 type: service
 platform: ubuntu@12.04
@@ -12,7 +12,7 @@ keywords:
   - automation
 
 script: |
-  curl -L https://launchpad.net/gcc-arm-embedded/4.7/4.7-2013-q3-update/+download/gcc-arm-none-eabi-4_7-2013q3-20130916-mac.tar.bz2 -o gcc-arm-none-eabi-4_7-2013q3-20130916-mac.tar.bz2 
-  tar xvf gcc-arm-none-eabi-4_7-2013q3-20130916-mac.tar.bz2
-  sudo mv gcc-arm-none-eabi-4_7-2013q3 /usr/local/
-  uname -a
+  sudo add-apt-repository --yes ppa:terry.guo/gcc-arm-embedded
+  sudo apt-get update
+  sudo apt-get install --yes gcc-arm-none-eabi
+  dpkg -L gcc-arm-none-eabi
